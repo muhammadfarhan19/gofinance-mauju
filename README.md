@@ -58,6 +58,8 @@ Untuk login dapat menggunakan username dan password di bawah ini
  password = m38rmF$
 ```
 
+Fitur pagination tidak berfungsi karna API dari [fake store API](ttps://fakestoreapi.com/) tidak menyediakan request untuk pagination.
+
 ## Deploy on Vercel
 
 Website GoFinance sudah di-_deploy_ menggunakan [Vercel](https://vercel.com/), dan dapat dikunjungi dengan klik [di sini](https://gofinance-mauju.vercel.app/)
