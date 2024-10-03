@@ -44,7 +44,7 @@ Buka [http://localhost:3000](http://localhost:3000) dengan browser untuk melihat
 
 ## Notes
 
-Pada pengembangan website GoFinance ini, saya menggunakan [fake store API](ttps://fakestoreapi.com/) sebagai fake REST API. Semua fitur seperti Register, Login, CRUD Product, dan CRUD Profile dapat digunakan dengan normal. Namun, karena data di Fake Store API tidak dapat diubah meskipun melakukan operasi CRUD, hasil perubahan tidak akan terlihat pada data yang ditampilkan oleh website.
+Pada pengembangan website GoFinance ini, saya menggunakan [fakestoreAPI](ttps://fakestoreapi.com/) sebagai fake REST API. Semua fitur seperti Register, Login, CRUD Product, dan CRUD Profile dapat digunakan dengan normal. Namun, karena data di Fake Store API tidak dapat diubah meskipun melakukan operasi CRUD, hasil perubahan tidak akan terlihat pada data yang ditampilkan oleh website.
 
 Untuk memastikan semua fitur berfungsi dengan baik, Anda bisa memeriksa Developer Console di bagian Network untuk melihat proses request.
 
@@ -58,7 +58,7 @@ Untuk memastikan semua fitur berfungsi dengan baik, Anda bisa memeriksa Develope
  password = kev02937@
 ```
 
-Fitur pagination tidak berfungsi karna API dari [fake store API](ttps://fakestoreapi.com/) tidak menyediakan request untuk pagination.
+Fitur pagination tidak berfungsi karna API dari [fakestoreAPI](ttps://fakestoreapi.com/) tidak menyediakan request untuk pagination.
 
 ## Deploy on Vercel
 
