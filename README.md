@@ -18,9 +18,13 @@ Clone poject:
 git clone https://github.com/muhammadfarhan19/gofinance-mauju
 ```
 
+Pindah direktori
+
 ```bash
 cd gofinance-mauju
 ```
+
+Install dependency
 
 ```bash
 yarn
@@ -36,17 +40,13 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000) dengan browser untuk melihat hasilnya.
 
 ## Notes
 
-Pada mengembangan website GoFinance ini, saya menggunakan https://fakestoreapi.com/ sebagai fake rest API.
+Pada pengembangan website GoFinance ini, saya menggunakan [fake store API](ttps://fakestoreapi.com/) sebagai fake REST API. Semua fitur seperti Register, Login, CRUD Product, dan CRUD Profile dapat digunakan dengan normal. Namun, karena data di Fake Store API tidak dapat diubah meskipun melakukan operasi CRUD, hasil perubahan tidak akan terlihat pada data yang ditampilkan oleh website.
 
-Semua fitur seperti Register, Login, CRUD Product, dan CRUD Profile dapat digunakan dengan normal.
-
-Namun dikarenakan data yang diberikan oleh Fake Store API tidak dapat berubah-ubah, maka untuk menguji fitur CRUD dapat dilihat melalui _Developer Console_.
-
-Untuk login dapat menggunakan username dan password di bawah ini
+Untuk memastikan semua fitur berfungsi dengan baik, Anda bisa memeriksa Developer Console di bagian Network untuk melihat proses request.
 
 ```bash
  username = mor_2314
@@ -54,8 +54,8 @@ Untuk login dapat menggunakan username dan password di bawah ini
 
  # or
 
- username = johnd
- password = m38rmF$
+ username = kevinryan
+ password = kev02937@
 ```
 
 Fitur pagination tidak berfungsi karna API dari [fake store API](ttps://fakestoreapi.com/) tidak menyediakan request untuk pagination.
