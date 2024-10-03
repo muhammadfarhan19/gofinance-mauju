@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { setSnackbar } from "../shared/Snackbar";
 import { SnackbarType } from "@/reducer/CommonReducer";
 import { PasswordIcon, UserIcon } from "../icons";
+import Link from "next/link";
 
 const Login = () => {
   const { push } = useRouter();
@@ -37,18 +38,19 @@ const Login = () => {
           show: true,
           message: "Berhasil Login",
           type: SnackbarType.INFO,
-        })
+        }),
       );
       push("/");
       return response;
     } catch (error: any) {
-      alert("Gagal Login");
+      const errorMessage =
+        error.response?.data?.message || "Failed to login. Please try again.";
       dispatch(
         setSnackbar({
           show: true,
-          message: "Email atau Kata Sandi Salah!!",
+          message: errorMessage,
           type: SnackbarType.ERROR,
-        })
+        }),
       );
     }
   };
@@ -64,7 +66,7 @@ const Login = () => {
               <UserIcon />
             </div>
             <input
-              type="username"
+              type="text"
               placeholder="Username"
               className="w-full px-12 py-4 border rounded-full focus:outline-none focus:ring focus:border-blue-300"
               {...register("username", { required: "Username is required" })}
@@ -107,19 +109,22 @@ const Login = () => {
       </form>
 
       <div className="text-center">
-        <a href="#" className="text-blue-600 text-sm hover:underline">
+        <Link
+          href="/auth/forgot-password"
+          className="text-blue-600 text-sm hover:underline"
+        >
           Forgot Password
-        </a>
+        </Link>
       </div>
 
       <div className="text-center flex items-center justify-center gap-x-1">
         <h1 className="text-[#333333] text-sm">Dont have an account?</h1>
-        <a
+        <Link
           href="/auth/register"
           className="text-blue-600 text-sm hover:underline"
         >
           Register
-        </a>
+        </Link>
       </div>
     </>
   );

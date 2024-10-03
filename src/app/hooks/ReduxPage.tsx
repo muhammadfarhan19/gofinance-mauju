@@ -26,24 +26,18 @@ function logger({ getState }: MiddlewareAPI) {
 }
 
 interface WithReduxPage {
-  <T extends React.FunctionComponent<P>, P extends Record<any, any>>(
-    Component: T
-  ): (props: P) => JSX.Element;
+  (Component: React.FC<any>): React.FC<any>;
 }
 
 export const withReduxPage =
   (reducers: ReducersMapObject = {}): WithReduxPage =>
   (Component) => {
-    function ReduxPage(props = {}) {
+    const ReduxPage: React.FC = (props = {}) => {
       const store = configureStore({
         reducer: combineReducers({
           common: commonReducer,
           ...reducers,
         }),
-        // middleware: (getDefaultMiddleware) =>
-        //   config.environment === "development"
-        //     ? getDefaultMiddleware().concat(thunk).concat(logger)
-        //     : getDefaultMiddleware().concat(thunk),
       });
 
       return (
@@ -51,9 +45,8 @@ export const withReduxPage =
           <NotificationBar />
           {/* @ts-ignore */}
           <Component {...props} />
-          {/* <ModalDialog /> */}
         </Provider>
       );
-    }
+    };
     return ReduxPage;
   };

@@ -11,27 +11,36 @@ interface ProfilePageProps {
 
 const ProfilePage = ({ userData }: ProfilePageProps) => {
   const { push } = useRouter();
-  const username = localStorage.getItem("username") || userData?.username;
+  const [username, setUsername] = React.useState<string | null>(null);
   const { data, loading, error } = useUser();
 
-  const [formModalState, setFormModalState] = React.useState<{
-    open: boolean;
-    selectedId?: number;
-  }>({
-    open: false,
-    selectedId: undefined,
-  });
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [selectedId, setSelectedId] = React.useState<number | undefined>(
+    undefined,
+  );
 
   const handleShowForm = (open: boolean, selectedId?: number) => {
-    setFormModalState({
-      open,
-      selectedId,
-    });
+    setIsModalOpen(open);
+    setSelectedId(selectedId);
   };
 
   React.useEffect(() => {
-    if (!Cookies.get("token")) push("/auth/login");
-  }, [push]);
+    if (!Cookies.get("token")) {
+      push("/auth/login");
+    }
+
+    const storedUsername =
+      localStorage.getItem("username") || userData?.username || null;
+    setUsername(storedUsername);
+  }, [push, userData]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <section className="min-w-full max-w-screen-md m-auto border flex flex-col justify-center items-end max-h-screen min-h-fit md:min-h-96 md:max-h-[500px] border-[#0575E6] rounded-2xl shadow-2xl py-10 px-4 md:px-6">
@@ -49,34 +58,41 @@ const ProfilePage = ({ userData }: ProfilePageProps) => {
           <h1 className="font-semibold italic text-xl">{data?.phone}</h1>
           <div className="w-full h-0.5 rounded-full bg-black mb-4" />
 
-          <h1 className="">Address</h1>
-          <h1 className="font-semibold italic text-xl">
-            {data?.address.street}, {data?.address.number},{" "}
-            {data?.address.geolocation.lat}, {data?.address.geolocation.long},{" "}
-            {data?.address.zipcode}
-          </h1>
-          <div className="w-full h-0.5 rounded-full bg-black mb-4" />
+          {data?.address && (
+            <>
+              <h1 className="">Address</h1>
+              <h1 className="font-semibold italic text-xl">
+                {data?.address?.street ?? "N/A"},{" "}
+                {data?.address?.number ?? "N/A"},
+                {data?.address?.geolocation?.lat ?? "N/A"},{" "}
+                {data?.address?.geolocation?.long ?? "N/A"},
+                {data?.address?.zipcode ?? "N/A"}
+              </h1>
+              <div className="w-full h-0.5 rounded-full bg-black mb-4" />
 
-          <h1 className="">City</h1>
-          <h1 className="font-semibold italic text-xl">{data?.address.city}</h1>
-          <div className="w-full h-0.5 rounded-full bg-black mb-4" />
+              <h1 className="">City</h1>
+              <h1 className="font-semibold italic text-xl">
+                {data?.address?.city ?? "N/A"}
+              </h1>
+              <div className="w-full h-0.5 rounded-full bg-black mb-4" />
+            </>
+          )}
         </div>
 
         <button
           className="bg-[#0575E6] px-6 py-2 md:py-3 rounded-full text-white text-sm"
-          onClick={() => {
-            handleShowForm(!formModalState?.open, data?.id);
-          }}
+          onClick={() => handleShowForm(true, data?.id)}
         >
           Edit
         </button>
       </aside>
-      {formModalState?.open && (
+
+      {isModalOpen && (
         <ModalProfile
-          open={formModalState?.open}
-          setOpen={(open: boolean) => handleShowForm(open, 0)}
-          onSuccess={() => formModalState.open}
-          selectedId={formModalState.selectedId}
+          open={isModalOpen}
+          setOpen={setIsModalOpen}
+          onSuccess={() => setIsModalOpen(false)}
+          selectedId={selectedId}
         />
       )}
     </section>

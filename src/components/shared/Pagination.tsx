@@ -113,12 +113,12 @@ export default function Pagination(props: PaginationProps) {
                     page === Number(each)
                       ? "z-10 bg-indigo-50 text-indigo-600"
                       : "text-gray-500 hover:bg-gray-50 bg-primary",
-                    "relative inline-flex cursor-pointer items-center  px-4 py-2 text-sm font-medium"
+                    "relative inline-flex cursor-pointer items-center  px-4 py-2 text-sm font-medium",
                   )}
                 >
                   {each}
                 </a>
-              )
+              ),
             )}
             <a
               onClick={handleNavigate("next")}

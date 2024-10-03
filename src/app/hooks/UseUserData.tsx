@@ -21,16 +21,22 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const username = localStorage.getItem("username");
-        const { data } = await axios.get(DATA_USER.GET_USER_LIST);
-        const user = data.find((user: UserType) => user.username === username);
-        setData(user);
+        // Ensure that localStorage is accessed only on the client
+        if (typeof window !== "undefined") {
+          const username = localStorage.getItem("username");
+          const { data } = await axios.get(DATA_USER.GET_USER_LIST);
+          const user = data.find(
+            (user: UserType) => user.username === username,
+          );
+          setData(user);
+        }
       } catch (err) {
         setError("Failed to fetch user data");
       } finally {
         setLoading(false);
       }
     };
+
     fetchUserData();
   }, []);
 

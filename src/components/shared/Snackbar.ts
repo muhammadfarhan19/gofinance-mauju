@@ -10,7 +10,7 @@ export const CommonActionType = {
 } as const;
 
 export const setSnackbar = (
-  snackbarProps: Partial<CommonState["snackbar"]>
+  snackbarProps: Partial<CommonState["snackbar"]>,
 ) => ({
   type: CommonActionType.SET_SNACKBAR,
   snackbar: snackbarProps,

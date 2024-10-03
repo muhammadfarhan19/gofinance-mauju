@@ -56,7 +56,7 @@ const Register = () => {
           show: true,
           message: "Berhasil mendaftar",
           type: SnackbarType.INFO,
-        })
+        }),
       );
       return response;
     } catch (error: any) {
@@ -66,7 +66,7 @@ const Register = () => {
           show: true,
           message: "Email atau Kata Sandi Salah!!",
           type: SnackbarType.ERROR,
-        })
+        }),
       );
     }
   };

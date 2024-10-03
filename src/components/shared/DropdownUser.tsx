@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import ClickOutside from "./../shared/ClickOutside";
@@ -10,10 +10,16 @@ import { useUser } from "@/app/hooks/UseUserData";
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [username, setUsername] = useState<string | null>(null);
   const { push } = useRouter();
-  const { data, loading, error } = useUser();
+  const { data } = useUser();
 
-  const username = localStorage.getItem("username");
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedUsername = localStorage.getItem("username");
+      setUsername(storedUsername);
+    }
+  }, []);
 
   return (
     <ClickOutside onClick={() => setDropdownOpen(false)} className="relative">
@@ -28,7 +34,7 @@ const DropdownUser = () => {
 
         <div className="w-full">
           <div className="w-full flex justify-between items-center gap-x-2 cursor-pointer">
-            <h1 className="font-bold text-white">{username}</h1>
+            <h1 className="font-bold text-white">{username || "Guest"}</h1>
             <ArrowDownIcon />
           </div>
           <h1 className="text-xs text-white">{data?.address.city}</h1>

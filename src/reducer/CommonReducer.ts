@@ -53,7 +53,7 @@ const initialState: CommonState = {
 
 export default function commonReducer(
   state = initialState,
-  action: CommonAction
+  action: CommonAction,
 ) {
   switch (action.type) {
     case CommonActionType.SET_SNACKBAR: {
@@ -72,5 +72,5 @@ export default function commonReducer(
 export const useCommonState = () =>
   useSelector<{ common: CommonState }, CommonState>(
     (state) => state.common,
-    shallowEqual
+    shallowEqual,
   );

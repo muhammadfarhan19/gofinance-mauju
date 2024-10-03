@@ -42,7 +42,7 @@ function ModalProfile(props: ModalProps) {
         show: true,
         message: "Data berhasil disimpan.",
         type: SnackbarType.INFO,
-      })
+      }),
     );
     onSuccess();
     setOpen(!open);
@@ -60,11 +60,11 @@ function ModalProfile(props: ModalProps) {
       setValue("address.number", data && data?.address.number);
       setValue(
         "address.geolocation.lat",
-        data && data?.address.geolocation.lat
+        data && data?.address.geolocation.lat,
       );
       setValue(
         "address.geolocation.long",
-        data && data?.address.geolocation.long
+        data && data?.address.geolocation.long,
       );
     }
   }, [data && selectedId]);

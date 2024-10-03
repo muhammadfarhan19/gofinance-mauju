@@ -55,7 +55,7 @@ const HomePage = ({ data }: { data: ProductType[] }) => {
           show: true,
           message: "Data berhasil dihapus.",
           type: SnackbarType.INFO,
-        })
+        }),
       );
     } catch (error: any) {
       dispatch(
@@ -63,7 +63,7 @@ const HomePage = ({ data }: { data: ProductType[] }) => {
           show: true,
           message: "Terjadi Kesalahan",
           type: SnackbarType.ERROR,
-        })
+        }),
       );
       console.log(error);
     }
@@ -86,7 +86,7 @@ const HomePage = ({ data }: { data: ProductType[] }) => {
     }
     timeoutRef.current = setTimeout(
       () => setFilterState(newState),
-      pageAffected ? 0 : 800
+      pageAffected ? 0 : 800,
     );
   };
   const handleCheckboxChange = (id: number) => {
@@ -97,10 +97,13 @@ const HomePage = ({ data }: { data: ProductType[] }) => {
   };
 
   const handleSelectAll = (isChecked: boolean) => {
-    const updatedCheckedItems = data.reduce((acc, item) => {
-      acc[item.id] = isChecked;
-      return acc;
-    }, {} as { [key: number]: boolean });
+    const updatedCheckedItems = data.reduce(
+      (acc, item) => {
+        acc[item.id] = isChecked;
+        return acc;
+      },
+      {} as { [key: number]: boolean },
+    );
 
     setCheckedItems(updatedCheckedItems);
   };
@@ -108,7 +111,7 @@ const HomePage = ({ data }: { data: ProductType[] }) => {
   const filteredData = data.filter(
     (item) =>
       item.title.toLowerCase().includes(filterState.search.toLowerCase()) ||
-      item.description.toLowerCase().includes(filterState.search.toLowerCase())
+      item.description.toLowerCase().includes(filterState.search.toLowerCase()),
   );
 
   return (

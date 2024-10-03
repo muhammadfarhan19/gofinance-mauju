@@ -87,7 +87,7 @@ export default function AutoComplete(props: AutoCompleteProps) {
                 className={({ active }) =>
                   classNames(
                     "relative cursor-default select-none py-2 pl-3 pr-9",
-                    active ? "bg-teal-400 text-white" : "text-gray-900"
+                    active ? "bg-teal-400 text-white" : "text-gray-900",
                   )
                 }
               >
@@ -96,7 +96,7 @@ export default function AutoComplete(props: AutoCompleteProps) {
                     <span
                       className={classNames(
                         "block truncate",
-                        selected ? "font-semibold" : ""
+                        selected ? "font-semibold" : "",
                       )}
                     >
                       {option.text}
@@ -105,7 +105,7 @@ export default function AutoComplete(props: AutoCompleteProps) {
                       <span
                         className={classNames(
                           "absolute inset-y-0 right-0 flex items-center pr-4",
-                          active ? "text-white" : "text-teal-400"
+                          active ? "text-white" : "text-teal-400",
                         )}
                       >
                         <CheckIcon className="h-5 w-5" aria-hidden="true" />

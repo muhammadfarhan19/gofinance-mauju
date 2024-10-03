@@ -43,7 +43,7 @@ function ModalProduct(props: ModalProps) {
     if (selectedId) {
       resSubmit = await axios.patch(
         DATA_PRODUCTS.GET_PRODUCT_LIST + `/${selectedId}`,
-        formData
+        formData,
       );
     } else {
       resSubmit = await axios.post(DATA_PRODUCTS.GET_PRODUCT_LIST, formData);
@@ -53,7 +53,7 @@ function ModalProduct(props: ModalProps) {
         show: true,
         message: `Berhasil ${selectedId ? "memperbarui" : "menambahkan"} data`,
         type: SnackbarType.INFO,
-      })
+      }),
     );
     onSuccess();
     setOpen(!open);
@@ -71,7 +71,7 @@ function ModalProduct(props: ModalProps) {
   React.useEffect(() => {
     const fetchData = async (id: number) => {
       const { data } = await axios.get(
-        DATA_PRODUCTS.GET_PRODUCT_LIST + `/${id}`
+        DATA_PRODUCTS.GET_PRODUCT_LIST + `/${id}`,
       );
       setDataProduct(data);
     };

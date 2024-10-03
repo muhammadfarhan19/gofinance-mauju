@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Transition } from "@headlessui/react";
 import * as React from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
@@ -55,7 +56,7 @@ function Snackbar(props: SnackbarProps) {
                 type === SnackbarType.INFO ? "bg-blue-600" : "",
                 type === SnackbarType.ERROR ? "bg-red-500" : "",
                 type === SnackbarType.WARNING ? "bg-amber-600" : "",
-                "rounded-lg p-2 shadow-lg sm:p-3"
+                "rounded-lg p-2 shadow-lg sm:p-3",
               )}
             >
               <div className="flex flex-wrap items-center justify-between">
@@ -65,7 +66,7 @@ function Snackbar(props: SnackbarProps) {
                       // type === SnackbarType.INFO ? "bg-teal-400" : "",
                       // type === SnackbarType.ERROR ? "bg-red-500" : "",
                       // type === SnackbarType.WARNING ? "bg-amber-600" : "",
-                      "flex rounded-lg p-2"
+                      "flex rounded-lg p-2",
                     )}
                   >
                     <SpeakerInfoIcon />
@@ -81,7 +82,7 @@ function Snackbar(props: SnackbarProps) {
                       type === SnackbarType.INFO ? "hover:bg-teal-400" : "",
                       type === SnackbarType.ERROR ? "hover:bg-red-500" : "",
                       type === SnackbarType.WARNING ? "hover:bg-amber-500" : "",
-                      "-mr-1 flex rounded-md p-2  focus:outline-none focus:ring-2 focus:ring-white"
+                      "-mr-1 flex rounded-md p-2  focus:outline-none focus:ring-2 focus:ring-white",
                     )}
                     onClick={handleClose}
                   >
