@@ -100,7 +100,7 @@ const Login = () => {
 
         <div className="mb-2">
           <button
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white py-4 rounded-full"
+            className="w-full bg-blue-500 hover:bg-[#0575E6] text-white py-4 rounded-full"
             type="submit"
           >
             Login

@@ -232,29 +232,6 @@ function ModalProfile(props: ModalProps) {
                       htmlFor="address.zipcode"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Zipcode
-                    </label>
-                    <input
-                      id="address.zipcode"
-                      type="text"
-                      inputMode="numeric"
-                      {...register("address.zipcode", {
-                        required: `Silakan ubah Nomor jalan`,
-                      })}
-                      className="mt-1 block w-full p-4 rounded-xl border-2 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-                    />
-                    {errors.address?.zipcode && (
-                      <span className="text-red-500 text-sm">
-                        {errors.address?.zipcode?.message}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="my-4 w-full col-span-1">
-                    <label
-                      htmlFor="address.zipcode"
-                      className="block text-sm font-medium text-gray-700"
-                    >
                       Geolocation Lat
                     </label>
                     <input
@@ -298,6 +275,29 @@ function ModalProfile(props: ModalProps) {
 
                   <div className="my-4 w-full col-span-1">
                     <label
+                      htmlFor="address.zipcode"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Zipcode
+                    </label>
+                    <input
+                      id="address.zipcode"
+                      type="text"
+                      inputMode="numeric"
+                      {...register("address.zipcode", {
+                        required: `Silakan ubah Nomor jalan`,
+                      })}
+                      className="mt-1 block w-full p-4 rounded-xl border-2 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    />
+                    {errors.address?.zipcode && (
+                      <span className="text-red-500 text-sm">
+                        {errors.address?.zipcode?.message}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="my-4 w-full col-span-1">
+                    <label
                       htmlFor="address.city"
                       className="block text-sm font-medium text-gray-700"
                     >
@@ -322,7 +322,7 @@ function ModalProfile(props: ModalProps) {
                 <div className="mt-5">
                   <button
                     type="submit"
-                    className="w-full rounded border border-transparent bg-blue-600 px-2.5 py-2 text-center text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    className="w-full rounded-full bg-[#0575E6] py-3 duration-300 ease-in-out text-center text-sm font-medium text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
                     {selectedId ? "Save" : "Submit"}
                   </button>

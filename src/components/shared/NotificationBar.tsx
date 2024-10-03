@@ -53,7 +53,7 @@ function Snackbar(props: SnackbarProps) {
           <div className="mx-auto max-w-xl px-2 sm:px-6 lg:px-8">
             <div
               className={classNames(
-                type === SnackbarType.INFO ? "bg-blue-600" : "",
+                type === SnackbarType.INFO ? "bg-[#0575E6]" : "",
                 type === SnackbarType.ERROR ? "bg-red-500" : "",
                 type === SnackbarType.WARNING ? "bg-amber-600" : "",
                 "rounded-lg p-2 shadow-lg sm:p-3",

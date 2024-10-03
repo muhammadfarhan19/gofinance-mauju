@@ -253,7 +253,7 @@ function ModalProduct(props: ModalProps) {
                 <div className="mt-5">
                   <button
                     type="submit"
-                    className="w-full rounded border border-transparent bg-blue-600 px-2.5 py-2 text-center text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    className="w-full rounded-full bg-[#0575E6] duration-300 ease-in-out py-3 text-center text-sm font-medium text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
                     {selectedId ? "Save" : "Submit"}
                   </button>

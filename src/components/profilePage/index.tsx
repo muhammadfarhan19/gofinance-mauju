@@ -80,7 +80,7 @@ const ProfilePage = ({ userData }: ProfilePageProps) => {
         </div>
 
         <button
-          className="bg-[#0575E6] px-6 py-2 md:py-3 rounded-full text-white text-sm"
+          className="bg-[#0575E6] px-10 py-2 md:py-3 rounded-full text-white text-sm duration-300 ease-in-out hover:bg-blue-600"
           onClick={() => handleShowForm(true, data?.id)}
         >
           Edit

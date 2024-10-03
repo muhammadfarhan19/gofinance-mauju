@@ -120,7 +120,7 @@ const HomePage = ({ data }: { data: ProductType[] }) => {
       <div className="flex justify-between items-center py-4">
         <h1 className="text-xl lg:text-3xl font-medium">Data produk</h1>
         <button
-          className="bg-[#0575E6] px-6 py-2 md:py-3 rounded-full text-white text-sm"
+          className="bg-[#0575E6] px-10 py-2 md:py-3 rounded-full text-white text-sm duration-300 ease-in-out hover:bg-blue-600"
           onClick={() => {
             handleShowForm(!formModalState?.open);
           }}
@@ -187,7 +187,7 @@ const HomePage = ({ data }: { data: ProductType[] }) => {
                 <td className="p-1 xl:p-3">
                   <div className="flex items-center justify-center space-x-2">
                     <button
-                      className="p-2 md:p-4 bg-blue-500 rounded-full hover:bg-blue-600"
+                      className="p-2 md:p-4 bg-[#0575E6] rounded-full hover:bg-blue-600"
                       onClick={() => {
                         handleShowForm(!formModalState?.open, item?.id);
                       }}
