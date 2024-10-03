@@ -1,36 +1,63 @@
 ## Introduction
 
+Halo, nama saya **Muhammad Farhan Hamidie**.
+
+GoFinance merupakan website yang saya kembangkan untuk mengikuti proses rekrutmen posisi Frontend Engineer di PT Mauju Teknologi Inovasi.
+
+Tech Stack:
+
+- Typescript
+- Next.js
+- Tailwindcss
+
 ## Getting Started
 
-First, run the development server:
+Clone poject:
+
+```bash
+git clone https://github.com/muhammadfarhan19/gofinance-mauju
+```
+
+```bash
+cd gofinance-mauju
+```
+
+```bash
+yarn
+# or
+npm install
+```
+
+Menjalankan server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Notes
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Pada mengembangan website GoFinance ini, saya menggunakan https://fakestoreapi.com/ sebagai fake rest API.
 
-## Learn More
+Semua fitur seperti Register, Login, CRUD Product, dan CRUD Profile dapat digunakan dengan normal.
 
-To learn more about Next.js, take a look at the following resources:
+Namun dikarenakan data yang diberikan oleh Fake Store API tidak dapat berubah-ubah, maka untuk menguji fitur CRUD dapat dilihat melalui _Developer Console_.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Untuk login dapat menggunakan username dan password di bawah ini
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+ username = mor_2314
+ password = 83r5^_
+
+ # or
+
+ username = johnd
+ password = m38rmF$
+```
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Website GoFinance sudah di-_deploy_ menggunakan [Vercel](https://vercel.com/), dan dapat dikunjungi dengan klik [di sini](https://gofinance-mauju.vercel.app/)
