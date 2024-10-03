@@ -2,7 +2,7 @@
 
 Halo, nama saya **Muhammad Farhan Hamidie**.
 
-GoFinance merupakan website yang saya kembangkan untuk mengikuti proses rekrutmen posisi Frontend Engineer di PT Mauju Teknologi Inovasi.
+GoFinance merupakan website yang saya kembangkan untuk mengikuti proses rekrutmen posisi Frontend Developer di PT Mauju Teknologi Inovasi.
 
 Tech Stack:
 
