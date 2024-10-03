@@ -8,9 +8,9 @@ import { TextLimiter } from "../shared/TextLimiter";
 import ConfirmDialog from "../shared/ConfirmDialog";
 import axios from "axios";
 import { DATA_PRODUCTS } from "@/types/api/endpoints";
-import { useDispatch } from "react-redux";
-import { setSnackbar } from "../shared/Snackbar";
-import { SnackbarType } from "@/reducer/CommonReducer";
+// import { useDispatch } from "react-redux";
+// import { setSnackbar } from "../shared/Snackbar";
+// import { SnackbarType } from "@/reducer/CommonReducer";
 import Pagination from "../shared/Pagination";
 import Cookies from "js-cookie";
 
@@ -20,7 +20,7 @@ const HomePage = ({ data }: { data: ProductType[] }) => {
     if (!Cookies.get("token")) router.push("/auth/login");
   }, []);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
   const [confirmId, setConfirmId] = React.useState<number | undefined>(0);
   const [filterState, setFilterState] = React.useState<any>({
@@ -50,22 +50,23 @@ const HomePage = ({ data }: { data: ProductType[] }) => {
   const handleDelete = async () => {
     try {
       await axios.delete(DATA_PRODUCTS.GET_PRODUCT_LIST + confirmId);
-      dispatch(
-        setSnackbar({
-          show: true,
-          message: "Data berhasil dihapus.",
-          type: SnackbarType.INFO,
-        }),
-      );
+      alert("Data berhasil dihapus");
+      // dispatch(
+      //   setSnackbar({
+      //     show: true,
+      //     message: "Data berhasil dihapus.",
+      //     type: SnackbarType.INFO,
+      //   }),
+      // );
     } catch (error: any) {
-      dispatch(
-        setSnackbar({
-          show: true,
-          message: "Terjadi Kesalahan",
-          type: SnackbarType.ERROR,
-        }),
-      );
-      console.log(error);
+      // dispatch(
+      //   setSnackbar({
+      //     show: true,
+      //     message: "Terjadi Kesalahan",
+      //     type: SnackbarType.ERROR,
+      //   }),
+      // );
+      alert("Terjadi kesalahan saat menghapus");
     }
     setConfirmId(0);
   };

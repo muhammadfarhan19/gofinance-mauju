@@ -5,9 +5,9 @@ import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { CloseIcon } from "../icons";
-import { setSnackbar } from "../shared/Snackbar";
-import { useDispatch } from "react-redux";
-import { SnackbarType } from "@/reducer/CommonReducer";
+// import { setSnackbar } from "../shared/Snackbar";
+// import { useDispatch } from "react-redux";
+// import { SnackbarType } from "@/reducer/CommonReducer";
 import { useUser } from "@/app/hooks/UseUserData";
 import { UserType } from "@/types/user.type";
 
@@ -21,7 +21,7 @@ interface ModalProps {
 function ModalProfile(props: ModalProps) {
   const { open, setOpen, onSuccess, selectedId } = props;
   const { data, error, loading } = useUser();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const toggleModal = () => {
     setOpen(!open);
@@ -37,13 +37,14 @@ function ModalProfile(props: ModalProps) {
 
   const submitHandler = async (formData: UserType) => {
     await axios.patch(DATA_USER.GET_USER_LIST + `/${selectedId}`, formData);
-    dispatch(
-      setSnackbar({
-        show: true,
-        message: "Data berhasil disimpan.",
-        type: SnackbarType.INFO,
-      }),
-    );
+    // dispatch(
+    //   setSnackbar({
+    //     show: true,
+    //     message: "Data berhasil disimpan.",
+    //     type: SnackbarType.INFO,
+    //   }),
+    // );
+    alert("Data berhasil disimpan");
     onSuccess();
     setOpen(!open);
   };

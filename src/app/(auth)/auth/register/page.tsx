@@ -9,4 +9,4 @@ const RegisterPage = () => {
   return <Register />;
 };
 
-export default withReduxPage()(RegisterPage);
+export default RegisterPage;

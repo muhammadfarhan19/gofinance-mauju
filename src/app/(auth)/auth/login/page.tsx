@@ -8,4 +8,4 @@ const LoginPage = () => {
   return <Login />;
 };
 
-export default withReduxPage()(LoginPage);
+export default LoginPage;

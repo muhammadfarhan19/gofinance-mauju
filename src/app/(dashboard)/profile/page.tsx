@@ -12,4 +12,4 @@ const Profile = () => {
   return data ? <ProfilePage userData={data} /> : <p>Loading...</p>;
 };
 
-export default withReduxPage()(Profile);
+export default Profile;

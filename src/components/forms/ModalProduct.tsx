@@ -7,9 +7,9 @@ import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { CloseIcon } from "../icons";
 import AutoComplete from "../shared/AutoComplete";
-import { setSnackbar } from "../shared/Snackbar";
-import { useDispatch } from "react-redux";
-import { SnackbarType } from "@/reducer/CommonReducer";
+// import { setSnackbar } from "../shared/Snackbar";
+// import { useDispatch } from "react-redux";
+// import { SnackbarType } from "@/reducer/CommonReducer";
 
 interface ModalProps {
   open: boolean;
@@ -24,7 +24,7 @@ function ModalProduct(props: ModalProps) {
   const [queryCategory, setQueryCategory] = React.useState("");
   const [categories, setCategories] = React.useState<CategoryType[]>([]);
   const debounce = React.useRef<number>(0);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const toggleModal = () => {
     setOpen(!open);
@@ -48,13 +48,14 @@ function ModalProduct(props: ModalProps) {
     } else {
       resSubmit = await axios.post(DATA_PRODUCTS.GET_PRODUCT_LIST, formData);
     }
-    dispatch(
-      setSnackbar({
-        show: true,
-        message: `Berhasil ${selectedId ? "memperbarui" : "menambahkan"} data`,
-        type: SnackbarType.INFO,
-      }),
-    );
+    // dispatch(
+    //   setSnackbar({
+    //     show: true,
+    //     message: `Berhasil ${selectedId ? "memperbarui" : "menambahkan"} data`,
+    //     type: SnackbarType.INFO,
+    //   }),
+    // );
+    alert(`Berhasil ${selectedId ? "memperbarui" : "menambahkan"} data`);
     onSuccess();
     setOpen(!open);
   };

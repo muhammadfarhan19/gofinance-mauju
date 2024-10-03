@@ -21,4 +21,4 @@ function Home() {
   return <HomePage data={dataProducts} />;
 }
 
-export default withReduxPage()(Home);
+export default Home;

@@ -5,15 +5,15 @@ import { useForm } from "react-hook-form";
 import { PostAuthLoginReq } from "@/types/auth.type";
 import axios from "axios";
 import { AUTH_API } from "@/types/api/endpoints";
-import { useDispatch } from "react-redux";
-import { setSnackbar } from "../shared/Snackbar";
-import { SnackbarType } from "@/reducer/CommonReducer";
 import { PasswordIcon, UserIcon } from "../icons";
 import Link from "next/link";
+// import { useDispatch } from "react-redux";
+// import { setSnackbar } from "../shared/Snackbar";
+// import { SnackbarType } from "@/reducer/CommonReducer";
 
 const Login = () => {
   const { push } = useRouter();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   React.useEffect(() => {
     if (Cookies.get("token")) push("/");
@@ -33,25 +33,25 @@ const Login = () => {
       Cookies.set("token", accessToken);
       localStorage.setItem("username", val.username);
 
-      dispatch(
-        setSnackbar({
-          show: true,
-          message: "Berhasil Login",
-          type: SnackbarType.INFO,
-        }),
-      );
+      // dispatch(
+      //   setSnackbar({
+      //     show: true,
+      //     message: "Berhasil Login",
+      //     type: SnackbarType.INFO,
+      //   }),
+      // );
+      alert("Berhasil Login");
       push("/");
       return response;
     } catch (error: any) {
-      const errorMessage =
-        error.response?.data?.message || "Failed to login. Please try again.";
-      dispatch(
-        setSnackbar({
-          show: true,
-          message: errorMessage,
-          type: SnackbarType.ERROR,
-        }),
-      );
+      // dispatch(
+      //   setSnackbar({
+      //     show: true,
+      //     message: errorMessage,
+      //     type: SnackbarType.ERROR,
+      //   }),
+      // );
+      alert("Gagal Login");
     }
   };
 

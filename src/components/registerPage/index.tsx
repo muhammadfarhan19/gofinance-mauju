@@ -9,13 +9,13 @@ import { useForm } from "react-hook-form";
 import { UserType } from "@/types/user.type";
 import axios from "axios";
 import { AUTH_API } from "@/types/api/endpoints";
-import { useDispatch } from "react-redux";
-import { setSnackbar } from "../shared/Snackbar";
-import { SnackbarType } from "@/reducer/CommonReducer";
+// import { useDispatch } from "react-redux";
+// import { setSnackbar } from "../shared/Snackbar";
+// import { SnackbarType } from "@/reducer/CommonReducer";
 
 const Register = () => {
   const { push } = useRouter();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   React.useEffect(() => {
     if (Cookies.get("token")) push("/");
   }, []);
@@ -51,23 +51,23 @@ const Register = () => {
       alert(`Berhasil Mendaftar. ID anda ${response.data.id}`);
       push("/auth/login");
 
-      dispatch(
-        setSnackbar({
-          show: true,
-          message: "Berhasil mendaftar",
-          type: SnackbarType.INFO,
-        }),
-      );
+      // dispatch(
+      //   setSnackbar({
+      //     show: true,
+      //     message: "Berhasil mendaftar",
+      //     type: SnackbarType.INFO,
+      //   }),
+      // );
       return response;
     } catch (error: any) {
       alert("Gagal Mendaftar");
-      dispatch(
-        setSnackbar({
-          show: true,
-          message: "Email atau Kata Sandi Salah!!",
-          type: SnackbarType.ERROR,
-        }),
-      );
+      // dispatch(
+      //   setSnackbar({
+      //     show: true,
+      //     message: "Email atau Kata Sandi Salah!!",
+      //     type: SnackbarType.ERROR,
+      //   }),
+      // );
     }
   };
 
