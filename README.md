@@ -35,9 +35,9 @@ npm install
 Menjalankan server:
 
 ```bash
-npm run dev
-# or
 yarn dev
+# or
+npm run dev
 ```
 
 Buka [http://localhost:3000](http://localhost:3000) dengan browser untuk melihat hasilnya.
